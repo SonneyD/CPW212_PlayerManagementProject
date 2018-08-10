@@ -1,0 +1,11 @@
+C:\Users\omgit\Desktop\ResearchProject\ProjectDir\PlayerDatabaseModule\PlayerDatabaseModule\bin\Debug\PlayerDatabaseModule.exe.config
+C:\Users\omgit\Desktop\ResearchProject\ProjectDir\PlayerDatabaseModule\PlayerDatabaseModule\obj\Debug\PlayerDatabaseModule.csprojResolveAssemblyReference.cache
+C:\Users\omgit\Desktop\ResearchProject\ProjectDir\PlayerDatabaseModule\PlayerDatabaseModule\obj\Debug\PlayerDatabaseModule.Properties.Resources.resources
+C:\Users\omgit\Desktop\ResearchProject\ProjectDir\PlayerDatabaseModule\PlayerDatabaseModule\obj\Debug\PlayerDatabaseModule.csproj.GenerateResource.Cache
+C:\Users\omgit\Desktop\ResearchProject\ProjectDir\PlayerDatabaseModule\PlayerDatabaseModule\bin\Debug\PlayerDatabaseModule.exe
+C:\Users\omgit\Desktop\ResearchProject\ProjectDir\PlayerDatabaseModule\PlayerDatabaseModule\bin\Debug\PlayerDatabaseModule.pdb
+C:\Users\omgit\Desktop\ResearchProject\ProjectDir\PlayerDatabaseModule\PlayerDatabaseModule\obj\Debug\PlayerDatabaseModule.exe
+C:\Users\omgit\Desktop\ResearchProject\ProjectDir\PlayerDatabaseModule\PlayerDatabaseModule\obj\Debug\PlayerDatabaseModule.pdb
+C:\Users\omgit\Desktop\ResearchProject\ProjectDir\PlayerDatabaseModule\PlayerDatabaseModule\obj\Debug\PlayerDatabaseModule.form_Login.resources
+C:\Users\omgit\Desktop\ResearchProject\ProjectDir\PlayerDatabaseModule\PlayerDatabaseModule\obj\Debug\PlayerDatabaseModule.frm_UserRegistration.resources
+C:\Users\omgit\Desktop\ResearchProject\ProjectDir\PlayerDatabaseModule\PlayerDatabaseModule\obj\Debug\PlayerDatabaseModule.frm_PlayerStorage.resources
