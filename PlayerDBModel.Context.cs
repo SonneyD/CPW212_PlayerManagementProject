@@ -13,10 +13,10 @@ namespace PlayerDatabaseModule
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class PlayerDatabaseEntities : DbContext
+    public partial class PlayerDBModel : DbContext
     {
-        public PlayerDatabaseEntities()
-            : base("name=PlayerDatabaseEntities")
+        public PlayerDBModel()
+            : base("name=PlayerDBModel")
         {
         }
     
@@ -28,6 +28,5 @@ namespace PlayerDatabaseModule
         public virtual DbSet<Inventory> Inventories { get; set; }
         public virtual DbSet<Item> Items { get; set; }
         public virtual DbSet<Player> Players { get; set; }
-        public virtual DbSet<PlayerUserData> PlayerUserDatas { get; set; }
     }
 }

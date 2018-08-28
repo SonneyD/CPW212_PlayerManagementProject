@@ -65,54 +65,57 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AA_CPW212_ProjectDB_Model.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AA_CPW212_ProjectDB_Model.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AA_CPW212_ProjectDB_Model.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AA_CPW212_ProjectDB_Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AA_CPW212_ProjectDB_Model.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AA_CPW212_ProjectDB_Model.edmx</DependentUpon>
-    </Compile>
     <Compile Include="DatebaseUtility\DBUtility.cs" />
-    <Compile Include="DatebaseUtility\DB_PlayerQueries.cs" />
-    <Compile Include="frm_login.cs">
+    <Compile Include="DatebaseUtility\PlayerDB.cs" />
+    <Compile Include="Forms\frm_AddItem.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_login.Designer.cs">
+    <Compile Include="Forms\frm_AddItem.Designer.cs">
+      <DependentUpon>frm_AddItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm_login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm_login.Designer.cs">
       <DependentUpon>frm_login.cs</DependentUpon>
     </Compile>
-    <Compile Include="frm_PlayerStorage.cs">
+    <Compile Include="Forms\frm_PlayerStorage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_PlayerStorage.Designer.cs">
+    <Compile Include="Forms\frm_PlayerStorage.Designer.cs">
       <DependentUpon>frm_PlayerStorage.cs</DependentUpon>
     </Compile>
-    <Compile Include="frm_UserRegistration.cs">
+    <Compile Include="Forms\frm_UserRegistration.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_UserRegistration.Designer.cs">
+    <Compile Include="Forms\frm_UserRegistration.Designer.cs">
       <DependentUpon>frm_UserRegistration.cs</DependentUpon>
     </Compile>
     <Compile Include="Inventory.cs">
-      <DependentUpon>AA_CPW212_ProjectDB_Model.tt</DependentUpon>
+      <DependentUpon>PlayerDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Item.cs">
-      <DependentUpon>AA_CPW212_ProjectDB_Model.tt</DependentUpon>
+      <DependentUpon>PlayerDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ItemManagement\Inventory.cs" />
     <Compile Include="ItemManagement\Item.cs" />
     <Compile Include="Player.cs">
-      <DependentUpon>AA_CPW212_ProjectDB_Model.tt</DependentUpon>
+      <DependentUpon>PlayerDBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="PlayerUserData.cs">
-      <DependentUpon>AA_CPW212_ProjectDB_Model.tt</DependentUpon>
+    <Compile Include="PlayerDBModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PlayerDBModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PlayerDBModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PlayerDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PlayerDBModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PlayerDBModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Security\Cryptography.cs" />
     <Compile Include="Security\Validation.cs" />
@@ -120,13 +123,16 @@
     <Compile Include="User\Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frm_login.resx">
+    <EmbeddedResource Include="Forms\frm_AddItem.resx">
+      <DependentUpon>frm_AddItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm_login.resx">
       <DependentUpon>frm_login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_PlayerStorage.resx">
+    <EmbeddedResource Include="Forms\frm_PlayerStorage.resx">
       <DependentUpon>frm_PlayerStorage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_UserRegistration.resx">
+    <EmbeddedResource Include="Forms\frm_UserRegistration.resx">
       <DependentUpon>frm_UserRegistration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -138,14 +144,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EntityDeploy Include="AA_CPW212_ProjectDB_Model.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>AA_CPW212_ProjectDB_Model.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="AA_CPW212_ProjectDB_Model.edmx.diagram">
-      <DependentUpon>AA_CPW212_ProjectDB_Model.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
+    <EntityDeploy Include="PlayerDBModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PlayerDBModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="PlayerDBModel.edmx.diagram">
+      <DependentUpon>PlayerDBModel.edmx</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -157,22 +163,22 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="AA_CPW212_ProjectDB_Model.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AA_CPW212_ProjectDB_Model.edmx</DependentUpon>
-      <LastGenOutput>AA_CPW212_ProjectDB_Model.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="AA_CPW212_ProjectDB_Model.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AA_CPW212_ProjectDB_Model.edmx</DependentUpon>
-      <LastGenOutput>AA_CPW212_ProjectDB_Model.cs</LastGenOutput>
-    </Content>
+    <None Include="Forms\App.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="PlayerDBModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PlayerDBModel.edmx</DependentUpon>
+      <LastGenOutput>PlayerDBModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="PlayerDBModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PlayerDBModel.edmx</DependentUpon>
+      <LastGenOutput>PlayerDBModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

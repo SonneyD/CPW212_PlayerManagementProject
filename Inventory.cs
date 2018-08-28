@@ -15,5 +15,8 @@ namespace PlayerDatabaseModule
     public partial class Inventory
     {
         public int InventoryID { get; set; }
+        public int PlayerID { get; set; }
+    
+        public virtual Player Player { get; set; }
     }
 }

@@ -19,19 +19,21 @@ namespace PlayerDatabaseModule
 
         private void btn_login_Click(object sender, EventArgs e)
         {
-            /* Attempt Login
-                -> Query PlayerDB
-                    -> Find user by username
-                        -> Check Password | return true or false    
-            */
+            string username = txt_Username.Text;
+            string password = txt_Password.Text;
 
-            /* if successful
-                    -> Open UserInfo form
-               if failed
-                    -> Open Invalid Info MsgBox
-             */
+            PlayerDBModel con = new PlayerDBModel();
 
+            List<Player> pPlayer = (from Player in con.Players
+                                    where Player.Username == username && Player.Password == password
+                                    select Player).ToList();
 
+            if(pPlayer.Count == 1)
+            {
+                var playerStr = new frm_PlayerStorage( pPlayer[0] );
+
+                DialogResult res = playerStr.ShowDialog();
+            }
 
             // if failed, display a message box prompting user retry login
         }
@@ -47,6 +49,11 @@ namespace PlayerDatabaseModule
             {
 
             }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -30,19 +30,21 @@
         {
             this.lbl_username = new System.Windows.Forms.Label();
             this.lbl_password = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txt_Username = new System.Windows.Forms.TextBox();
+            this.txt_Password = new System.Windows.Forms.TextBox();
             this.btn_Register = new System.Windows.Forms.Button();
             this.rtxt_Instructions = new System.Windows.Forms.RichTextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txt_PasswordAgain = new System.Windows.Forms.TextBox();
             this.lbl_password2 = new System.Windows.Forms.Label();
             this.btn_exit = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txt_Email = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lbl_username
             // 
             this.lbl_username.AutoSize = true;
-            this.lbl_username.Location = new System.Drawing.Point(36, 76);
+            this.lbl_username.Location = new System.Drawing.Point(38, 83);
             this.lbl_username.Name = "lbl_username";
             this.lbl_username.Size = new System.Drawing.Size(58, 13);
             this.lbl_username.TabIndex = 0;
@@ -51,33 +53,33 @@
             // lbl_password
             // 
             this.lbl_password.AutoSize = true;
-            this.lbl_password.Location = new System.Drawing.Point(36, 108);
+            this.lbl_password.Location = new System.Drawing.Point(38, 145);
             this.lbl_password.Name = "lbl_password";
             this.lbl_password.Size = new System.Drawing.Size(56, 13);
             this.lbl_password.TabIndex = 1;
             this.lbl_password.Text = "Password:";
             this.lbl_password.Click += new System.EventHandler(this.lbl_password_Click);
             // 
-            // textBox1
+            // txt_Username
             // 
-            this.textBox1.Location = new System.Drawing.Point(128, 76);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(172, 20);
-            this.textBox1.TabIndex = 0;
+            this.txt_Username.Location = new System.Drawing.Point(128, 76);
+            this.txt_Username.Name = "txt_Username";
+            this.txt_Username.Size = new System.Drawing.Size(172, 20);
+            this.txt_Username.TabIndex = 0;
             // 
-            // textBox2
+            // txt_Password
             // 
-            this.textBox2.Location = new System.Drawing.Point(128, 105);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(172, 20);
-            this.textBox2.TabIndex = 1;
+            this.txt_Password.Location = new System.Drawing.Point(128, 138);
+            this.txt_Password.Name = "txt_Password";
+            this.txt_Password.Size = new System.Drawing.Size(172, 20);
+            this.txt_Password.TabIndex = 2;
             // 
             // btn_Register
             // 
-            this.btn_Register.Location = new System.Drawing.Point(29, 179);
+            this.btn_Register.Location = new System.Drawing.Point(39, 214);
             this.btn_Register.Name = "btn_Register";
             this.btn_Register.Size = new System.Drawing.Size(117, 30);
-            this.btn_Register.TabIndex = 3;
+            this.btn_Register.TabIndex = 4;
             this.btn_Register.Text = "Register";
             this.btn_Register.UseVisualStyleBackColor = true;
             this.btn_Register.Click += new System.EventHandler(this.btn_Register_Click);
@@ -88,22 +90,22 @@
             this.rtxt_Instructions.Location = new System.Drawing.Point(12, 12);
             this.rtxt_Instructions.Name = "rtxt_Instructions";
             this.rtxt_Instructions.ReadOnly = true;
-            this.rtxt_Instructions.Size = new System.Drawing.Size(341, 45);
+            this.rtxt_Instructions.Size = new System.Drawing.Size(328, 45);
             this.rtxt_Instructions.TabIndex = 6;
             this.rtxt_Instructions.Text = "";
             this.rtxt_Instructions.TextChanged += new System.EventHandler(this.rtxt_Instructions_TextChanged);
             // 
-            // textBox3
+            // txt_PasswordAgain
             // 
-            this.textBox3.Location = new System.Drawing.Point(128, 139);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(172, 20);
-            this.textBox3.TabIndex = 2;
+            this.txt_PasswordAgain.Location = new System.Drawing.Point(128, 174);
+            this.txt_PasswordAgain.Name = "txt_PasswordAgain";
+            this.txt_PasswordAgain.Size = new System.Drawing.Size(172, 20);
+            this.txt_PasswordAgain.TabIndex = 3;
             // 
             // lbl_password2
             // 
             this.lbl_password2.AutoSize = true;
-            this.lbl_password2.Location = new System.Drawing.Point(36, 142);
+            this.lbl_password2.Location = new System.Drawing.Point(38, 181);
             this.lbl_password2.Name = "lbl_password2";
             this.lbl_password2.Size = new System.Drawing.Size(86, 13);
             this.lbl_password2.TabIndex = 8;
@@ -111,26 +113,44 @@
             // 
             // btn_exit
             // 
-            this.btn_exit.Location = new System.Drawing.Point(222, 179);
+            this.btn_exit.Location = new System.Drawing.Point(183, 215);
             this.btn_exit.Name = "btn_exit";
             this.btn_exit.Size = new System.Drawing.Size(117, 29);
-            this.btn_exit.TabIndex = 4;
+            this.btn_exit.TabIndex = 5;
             this.btn_exit.Text = "Exit";
             this.btn_exit.UseVisualStyleBackColor = true;
             this.btn_exit.Click += new System.EventHandler(this.btn_exit_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(38, 116);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Email:";
+            // 
+            // txt_Email
+            // 
+            this.txt_Email.Location = new System.Drawing.Point(128, 109);
+            this.txt_Email.Name = "txt_Email";
+            this.txt_Email.Size = new System.Drawing.Size(172, 20);
+            this.txt_Email.TabIndex = 1;
             // 
             // frm_UserRegistration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(365, 234);
+            this.ClientSize = new System.Drawing.Size(352, 262);
+            this.Controls.Add(this.txt_Email);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_exit);
             this.Controls.Add(this.lbl_password2);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txt_PasswordAgain);
             this.Controls.Add(this.rtxt_Instructions);
             this.Controls.Add(this.btn_Register);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txt_Password);
+            this.Controls.Add(this.txt_Username);
             this.Controls.Add(this.lbl_password);
             this.Controls.Add(this.lbl_username);
             this.Name = "frm_UserRegistration";
@@ -144,12 +164,14 @@
 
         private System.Windows.Forms.Label lbl_username;
         private System.Windows.Forms.Label lbl_password;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txt_Username;
+        private System.Windows.Forms.TextBox txt_Password;
         private System.Windows.Forms.Button btn_Register;
         private System.Windows.Forms.RichTextBox rtxt_Instructions;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txt_PasswordAgain;
         private System.Windows.Forms.Label lbl_password2;
         private System.Windows.Forms.Button btn_exit;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txt_Email;
     }
 }

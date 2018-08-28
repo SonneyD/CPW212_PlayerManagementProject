@@ -11,15 +11,10 @@ GO
 USE AA_CPW212_ProjectDB
 GO
 
-CREATE TABLE Player(
-	PlayerID		int			NOT NULL			IDENTITY(1,1)	Primary Key,
-	PlayerUDID		int			NOT NULL,
-	InventoryID		int			NOT NULL,
-)
-GO
 
-CREATE TABLE PlayerUserData(
-	PlayerUDID		int				NOT NULL		IDENTITY(1,1)	Primary Key,
+CREATE TABLE Player(
+	PlayerID		int			NOT NULL			identity primary key,
+
 	[Username]		varchar(32)		NOT NULL,
 	[Password]		varchar(16)		NOT NULL,
 	EmailAddress	varchar(255)	NOT NULL,
@@ -27,17 +22,15 @@ CREATE TABLE PlayerUserData(
 )
 GO
 
-CREATE TABLE Inventory(
-	InventoryID		int				NOT NULL		IDENTITY(1,1)	Primary Key,
+CREATE TABLE Item(
+	ItemID			int				NOT NULL		identity primary key,
+	ItemName		varchar(144)	NOT NULL,
+	ItemDesc		varchar(255),
 )
 GO
 
-CREATE TABLE Item(
-	ItemID			int				NOT NULL		IDENTITY(1,1)	Primary Key,
-	ItemName		varchar(144)	NOT NULL,
-	ItemDesc		varchar(255),
-
-	InventoryID		int				NOT NULL,
-
+CREATE TABLE Inventory(
+	InventoryID		int				NOT NULL		identity primary key,
+	PlayerID		int				NOT NULL		foreign key references Player( PlayerID )
 )
 GO

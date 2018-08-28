@@ -17,6 +17,5 @@ namespace PlayerDatabaseModule
         public int ItemID { get; set; }
         public string ItemName { get; set; }
         public string ItemDesc { get; set; }
-        public int InventoryID { get; set; }
     }
 }

@@ -47,15 +47,6 @@ namespace PlayerDatabaseModule
             }
             return list;
         }
-        public Item getItemByID( long id )
-        {
-            foreach (Item obj in this.itemList)
-            {
-                if (obj.getNum() == id)
-                    return obj;
-            }
-            return null;
-        }
 
         /******************************************************/
         // Settors

@@ -4,12 +4,13 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="PlayerDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="AA_CPW212_ProjectDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Inventory">
           <Key>
             <PropertyRef Name="InventoryID" />
           </Key>
           <Property Name="InventoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PlayerID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Item">
           <Key>
@@ -18,42 +19,50 @@
           <Property Name="ItemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ItemName" Type="varchar" MaxLength="144" Nullable="false" />
           <Property Name="ItemDesc" Type="varchar" MaxLength="255" />
-          <Property Name="InventoryID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Player">
           <Key>
             <PropertyRef Name="PlayerID" />
           </Key>
           <Property Name="PlayerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="PlayerUDID" Type="int" Nullable="false" />
-          <Property Name="InventoryID" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="PlayerUserData">
-          <Key>
-            <PropertyRef Name="PlayerUDID" />
-          </Key>
-          <Property Name="PlayerUDID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Username" Type="varchar" MaxLength="32" Nullable="false" />
           <Property Name="Password" Type="varchar" MaxLength="16" Nullable="false" />
           <Property Name="EmailAddress" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="DateJoined" Type="date" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="PlayerDatabaseModelStoreContainer">
+        <Association Name="FK__Inventory__Playe__3B75D760">
+          <End Role="Player" Type="Self.Player" Multiplicity="1" />
+          <End Role="Inventory" Type="Self.Inventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Player">
+              <PropertyRef Name="PlayerID" />
+            </Principal>
+            <Dependent Role="Inventory">
+              <PropertyRef Name="PlayerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AA_CPW212_ProjectDBModelStoreContainer">
           <EntitySet Name="Inventory" EntityType="Self.Inventory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Item" EntityType="Self.Item" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Player" EntityType="Self.Player" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="PlayerUserData" EntityType="Self.PlayerUserData" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Inventory__Playe__3B75D760" Association="Self.FK__Inventory__Playe__3B75D760">
+            <End Role="Player" EntitySet="Player" />
+            <End Role="Inventory" EntitySet="Inventory" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="PlayerDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="AA_CPW212_ProjectDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Inventory">
           <Key>
             <PropertyRef Name="InventoryID" />
           </Key>
           <Property Name="InventoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PlayerID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Player" Relationship="Self.FK__Inventory__Playe__3B75D760" FromRole="Inventory" ToRole="Player" />
         </EntityType>
         <EntityType Name="Item">
           <Key>
@@ -62,68 +71,66 @@
           <Property Name="ItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ItemName" Type="String" MaxLength="144" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ItemDesc" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="InventoryID" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Player">
           <Key>
             <PropertyRef Name="PlayerID" />
           </Key>
           <Property Name="PlayerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="PlayerUDID" Type="Int32" Nullable="false" />
-          <Property Name="InventoryID" Type="Int32" Nullable="false" />
-        </EntityType>
-        <EntityType Name="PlayerUserData">
-          <Key>
-            <PropertyRef Name="PlayerUDID" />
-          </Key>
-          <Property Name="PlayerUDID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Username" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="EmailAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="DateJoined" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Inventories" Relationship="Self.FK__Inventory__Playe__3B75D760" FromRole="Player" ToRole="Inventory" />
         </EntityType>
-        <EntityContainer Name="PlayerDatabaseEntities" annotation:LazyLoadingEnabled="true">
+        <Association Name="FK__Inventory__Playe__3B75D760">
+          <End Role="Player" Type="Self.Player" Multiplicity="1" />
+          <End Role="Inventory" Type="Self.Inventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Player">
+              <PropertyRef Name="PlayerID" />
+            </Principal>
+            <Dependent Role="Inventory">
+              <PropertyRef Name="PlayerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PlayerDBModel" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Inventories" EntityType="Self.Inventory" />
           <EntitySet Name="Items" EntityType="Self.Item" />
           <EntitySet Name="Players" EntityType="Self.Player" />
-          <EntitySet Name="PlayerUserDatas" EntityType="Self.PlayerUserData" />
+          <AssociationSet Name="FK__Inventory__Playe__3B75D760" Association="Self.FK__Inventory__Playe__3B75D760">
+            <End Role="Player" EntitySet="Players" />
+            <End Role="Inventory" EntitySet="Inventories" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="PlayerDatabaseModelStoreContainer" CdmEntityContainer="PlayerDatabaseEntities">
+        <EntityContainerMapping StorageEntityContainer="AA_CPW212_ProjectDBModelStoreContainer" CdmEntityContainer="PlayerDBModel">
           <EntitySetMapping Name="Inventories">
-            <EntityTypeMapping TypeName="PlayerDatabaseModel.Inventory">
+            <EntityTypeMapping TypeName="AA_CPW212_ProjectDBModel.Inventory">
               <MappingFragment StoreEntitySet="Inventory">
                 <ScalarProperty Name="InventoryID" ColumnName="InventoryID" />
+                <ScalarProperty Name="PlayerID" ColumnName="PlayerID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Items">
-            <EntityTypeMapping TypeName="PlayerDatabaseModel.Item">
+            <EntityTypeMapping TypeName="AA_CPW212_ProjectDBModel.Item">
               <MappingFragment StoreEntitySet="Item">
                 <ScalarProperty Name="ItemID" ColumnName="ItemID" />
                 <ScalarProperty Name="ItemName" ColumnName="ItemName" />
                 <ScalarProperty Name="ItemDesc" ColumnName="ItemDesc" />
-                <ScalarProperty Name="InventoryID" ColumnName="InventoryID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Players">
-            <EntityTypeMapping TypeName="PlayerDatabaseModel.Player">
+            <EntityTypeMapping TypeName="AA_CPW212_ProjectDBModel.Player">
               <MappingFragment StoreEntitySet="Player">
                 <ScalarProperty Name="PlayerID" ColumnName="PlayerID" />
-                <ScalarProperty Name="PlayerUDID" ColumnName="PlayerUDID" />
-                <ScalarProperty Name="InventoryID" ColumnName="InventoryID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PlayerUserDatas">
-            <EntityTypeMapping TypeName="PlayerDatabaseModel.PlayerUserData">
-              <MappingFragment StoreEntitySet="PlayerUserData">
-                <ScalarProperty Name="PlayerUDID" ColumnName="PlayerUDID" />
                 <ScalarProperty Name="Username" ColumnName="Username" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />

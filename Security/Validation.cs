@@ -61,5 +61,15 @@ namespace PlayerDatabaseModule.Security
             }
         }
 
+        public static bool CheckItem( Item pItem )
+        {
+            if(checkUsernameLength(pItem.ItemName) && pItem.ItemDesc.Length > 0)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
     }
 }

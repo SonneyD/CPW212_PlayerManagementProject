@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static PlayerDatabaseModule.DatebaseUtility.PlayerDB;
 
 namespace PlayerDatabaseModule
 {
@@ -23,7 +24,23 @@ namespace PlayerDatabaseModule
         
         private void btn_Register_Click(object sender, EventArgs e)
         {
-            // Attempt user registration
+            string username = txt_Username.Text;
+            string password = txt_Password.Text;
+            string email = txt_Email.Text;
+
+            try
+            {
+                Player pPlayer = new Player(username, password, email);
+                AddPlayer(pPlayer);
+                this.Close();
+                MessageBox.Show("User has been registered, Try logging in.");
+            }
+            catch(ArgumentException)
+            {
+
+            }
+
+            
         }
 
         private void btn_exit_Click(object sender, EventArgs e)
