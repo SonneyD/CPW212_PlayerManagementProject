@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using PlayerDatabaseModule.Exceptions;
+
 
 namespace PlayerDatabaseModule
 {
-    class Inventory
+    partial class Inventory
     {
         /******************************************************/
         // Member Variables
@@ -19,9 +17,9 @@ namespace PlayerDatabaseModule
         {
             this.itemList = new List<Item>();
 
-            if( pOwner != null )
+            if (pOwner != null)
                 this.owner = pOwner;
-            //else // throw invalid owner obj exception
+            else throw new InvalidObjectPointer("Inventory was initialized without a valid owner | Inventory-> Inventory(pOwner)");
         }
         public Inventory(Player pOwner, List<Item> list)
         {
@@ -29,7 +27,7 @@ namespace PlayerDatabaseModule
 
             if (pOwner != null)
                 this.owner = pOwner;
-            //else // throw invalid owner obj exception
+            else throw new InvalidObjectPointer("Inventory was initialized without a valid owner | Inventory-> Inventory(pOwner, list)");
         }
 
 

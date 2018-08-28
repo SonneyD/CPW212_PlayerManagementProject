@@ -20,5 +20,10 @@ namespace PlayerDatabaseModule.DatebaseUtility
             con.ConnectionString = GetConnectionString( source, catalog );
             return con;
         }
+
+        public static void MakeQuery()
+        {
+            //var query =
+        }
     }
 }

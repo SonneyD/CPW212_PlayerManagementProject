@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PlayerDatabaseModule
 {
-    public class Item
+    public partial class Item
     {
         /******************************************************/
         // Member variables

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PlayerDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Inventory">
+    <Key>
+      <PropertyRef Name="InventoryID" />
+    </Key>
+    <Property Name="InventoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Item">
+    <Key>
+      <PropertyRef Name="ItemID" />
+    </Key>
+    <Property Name="ItemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ItemName" Type="varchar" MaxLength="144" Nullable="false" />
+    <Property Name="ItemDesc" Type="varchar" MaxLength="255" />
+    <Property Name="InventoryID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Player">
+    <Key>
+      <PropertyRef Name="PlayerID" />
+    </Key>
+    <Property Name="PlayerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PlayerUDID" Type="int" Nullable="false" />
+    <Property Name="InventoryID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PlayerUserData">
+    <Key>
+      <PropertyRef Name="PlayerUDID" />
+    </Key>
+    <Property Name="PlayerUDID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="32" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="EmailAddress" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="DateJoined" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="PlayerDatabaseModelStoreContainer">
+    <EntitySet Name="Inventory" EntityType="Self.Inventory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Item" EntityType="Self.Item" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Player" EntityType="Self.Player" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PlayerUserData" EntityType="Self.PlayerUserData" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

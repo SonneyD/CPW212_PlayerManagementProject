@@ -3,13 +3,13 @@ using static PlayerDatabaseModule.Security.Validation;
 
 namespace PlayerDatabaseModule
 {
-    public class Player
+    public partial class Player
     {
         /******************************************************/
         // Member Variables
         private string username;
         private string password;
-        private long playerID;
+        //private long playerID;
 
         /******************************************************/
         // Constructor
@@ -23,14 +23,14 @@ namespace PlayerDatabaseModule
                 this.password = password;
             else throw new InvalidPassword();
 
-            this.playerID = id;
+            //this.playerID = id;
         }
 
         /******************************************************/
         // Gettors
         public string getUsername() { return this.username; }
         public string getPassword() { return this.password; }
-        public long getID() { return this.playerID;  }
+        //public long getID() { return this.playerID;  }
 
         /******************************************************/
         // Settors

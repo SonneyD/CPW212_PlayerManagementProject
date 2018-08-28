@@ -6,6 +6,12 @@ using System.Threading.Tasks;
 
 namespace PlayerDatabaseModule.Exceptions
 {
+    public class InvalidObjectPointer : Exception
+    {
+        public InvalidObjectPointer() { }
+        public InvalidObjectPointer(string message) : base(message){ }
+        public InvalidObjectPointer(string msg, Exception inner) : base(msg, inner) { }
+    }
     public class InvalidUsername : Exception
     {
         public InvalidUsername() { }
