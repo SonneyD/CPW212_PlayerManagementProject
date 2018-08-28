@@ -16,7 +16,9 @@ namespace PlayerDatabaseModule
     {
         public int InventoryID { get; set; }
         public int PlayerID { get; set; }
+        public int ItemID { get; set; }
     
+        public virtual Item Item { get; set; }
         public virtual Player Player { get; set; }
     }
 }

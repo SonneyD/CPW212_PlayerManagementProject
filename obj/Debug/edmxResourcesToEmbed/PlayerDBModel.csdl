@@ -6,6 +6,8 @@
     </Key>
     <Property Name="InventoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="PlayerID" Type="Int32" Nullable="false" />
+    <Property Name="ItemID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Item" Relationship="Self.FK__Inventory__ItemI__3C69FB99" FromRole="Inventory" ToRole="Item" />
     <NavigationProperty Name="Player" Relationship="Self.FK__Inventory__Playe__3B75D760" FromRole="Inventory" ToRole="Player" />
   </EntityType>
   <EntityType Name="Item">
@@ -15,6 +17,7 @@
     <Property Name="ItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="ItemName" Type="String" MaxLength="144" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="ItemDesc" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Inventories" Relationship="Self.FK__Inventory__ItemI__3C69FB99" FromRole="Item" ToRole="Inventory" />
   </EntityType>
   <EntityType Name="Player">
     <Key>
@@ -24,9 +27,21 @@
     <Property Name="Username" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Password" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="EmailAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="DateJoined" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="DateJoined" Type="DateTime" Precision="0" />
     <NavigationProperty Name="Inventories" Relationship="Self.FK__Inventory__Playe__3B75D760" FromRole="Player" ToRole="Inventory" />
   </EntityType>
+  <Association Name="FK__Inventory__ItemI__3C69FB99">
+    <End Role="Item" Type="Self.Item" Multiplicity="1" />
+    <End Role="Inventory" Type="Self.Inventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="ItemID" />
+      </Principal>
+      <Dependent Role="Inventory">
+        <PropertyRef Name="ItemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__Inventory__Playe__3B75D760">
     <End Role="Player" Type="Self.Player" Multiplicity="1" />
     <End Role="Inventory" Type="Self.Inventory" Multiplicity="*" />
@@ -43,6 +58,10 @@
     <EntitySet Name="Inventories" EntityType="Self.Inventory" />
     <EntitySet Name="Items" EntityType="Self.Item" />
     <EntitySet Name="Players" EntityType="Self.Player" />
+    <AssociationSet Name="FK__Inventory__ItemI__3C69FB99" Association="Self.FK__Inventory__ItemI__3C69FB99">
+      <End Role="Item" EntitySet="Items" />
+      <End Role="Inventory" EntitySet="Inventories" />
+    </AssociationSet>
     <AssociationSet Name="FK__Inventory__Playe__3B75D760" Association="Self.FK__Inventory__Playe__3B75D760">
       <End Role="Player" EntitySet="Players" />
       <End Role="Inventory" EntitySet="Inventories" />

@@ -21,9 +21,6 @@ namespace PlayerDatabaseModule
     {
         /******************************************************/
         // Member Variables
-        private string username;
-        private string password;
-        private string email;
         public Inventory pInventory;
 
         /******************************************************/
@@ -31,14 +28,12 @@ namespace PlayerDatabaseModule
         public Player( string username, string password, string email )
         {
             if (checkUsernameLength(username))
-                this.username = username;
+                this.Username = username;
             else throw new InvalidUsername("Invalid Length: " + username.Length.ToString());
 
             if (checkPassword(password))
-                this.password = password;
+                this.Password = password;
             else throw new InvalidPassword();
-
-            this.email = email;
 
             this.Username = username;
             this.Password = password;
@@ -50,8 +45,6 @@ namespace PlayerDatabaseModule
 
         /******************************************************/
         // Gettors
-        public string getUsername() { return this.username; }
-        public string getPassword() { return this.password; }
 
         /******************************************************/
         // Settors

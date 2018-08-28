@@ -114,6 +114,7 @@
             this.lbox_pInventory.Name = "lbox_pInventory";
             this.lbox_pInventory.Size = new System.Drawing.Size(224, 82);
             this.lbox_pInventory.TabIndex = 8;
+            this.lbox_pInventory.SelectedIndexChanged += new System.EventHandler(this.lbox_pInventory_SelectedIndexChanged);
             // 
             // label1
             // 

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PlayerDatabaseModule.Exceptions;
 using static PlayerDatabaseModule.DatebaseUtility.PlayerDB;
 
 namespace PlayerDatabaseModule
@@ -31,13 +32,21 @@ namespace PlayerDatabaseModule
             try
             {
                 Player pPlayer = new Player(username, password, email);
+
                 AddPlayer(pPlayer);
                 this.Close();
                 MessageBox.Show("User has been registered, Try logging in.");
             }
-            catch(ArgumentException)
+            catch(Exception ex)
             {
+                string output = "You cannot not continue registration with the following ";
 
+                if (ex is InvalidUsername)
+                    output += "username.";
+                else if (ex is InvalidPassword)
+                    output += "password.";
+
+                    MessageBox.Show(output);
             }
 
             

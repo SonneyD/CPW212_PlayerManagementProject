@@ -6,6 +6,7 @@
         <MappingFragment StoreEntitySet="Inventory">
           <ScalarProperty Name="InventoryID" ColumnName="InventoryID" />
           <ScalarProperty Name="PlayerID" ColumnName="PlayerID" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

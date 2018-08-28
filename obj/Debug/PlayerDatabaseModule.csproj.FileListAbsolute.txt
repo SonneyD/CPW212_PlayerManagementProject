@@ -28,3 +28,4 @@ C:\Users\omgit\Source\Repos\CPW212_PlayerManagementProject\bin\Debug\EntityFrame
 C:\Users\omgit\Source\Repos\CPW212_PlayerManagementProject\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\omgit\Source\Repos\CPW212_PlayerManagementProject\bin\Debug\EntityFramework.SqlServerCompact.xml
 C:\Users\omgit\Source\Repos\CPW212_PlayerManagementProject\obj\Debug\PlayerDatabaseModule.frm_AddItem.resources
+C:\Users\omgit\Source\Repos\CPW212_PlayerManagementProject\obj\Debug\PlayerDatabaseModule.frm_DisplayItemInfo.resources

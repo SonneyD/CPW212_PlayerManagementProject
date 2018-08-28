@@ -1,12 +1,12 @@
-﻿using System;
+﻿#define DEBUG
+
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace PlayerDatabaseModule
 {
@@ -21,6 +21,11 @@ namespace PlayerDatabaseModule
         {
             string username = txt_Username.Text;
             string password = txt_Password.Text;
+
+#if (DEBUG)
+            username = "admin";
+            password = "Admin!";
+#endif
 
             PlayerDBModel con = new PlayerDBModel();
 

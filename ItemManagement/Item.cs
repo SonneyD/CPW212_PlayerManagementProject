@@ -19,8 +19,7 @@ namespace PlayerDatabaseModule
 
         /******************************************************/
         // Constructor
-        public Item()
-        { }
+ 
         public Item( string name, string desc, long itemNum )
         {
             this.ItemName = name;

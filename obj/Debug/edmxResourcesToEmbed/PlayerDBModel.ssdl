@@ -6,6 +6,7 @@
     </Key>
     <Property Name="InventoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="PlayerID" Type="int" Nullable="false" />
+    <Property Name="ItemID" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Item">
     <Key>
@@ -23,8 +24,20 @@
     <Property Name="Username" Type="varchar" MaxLength="32" Nullable="false" />
     <Property Name="Password" Type="varchar" MaxLength="16" Nullable="false" />
     <Property Name="EmailAddress" Type="varchar" MaxLength="255" Nullable="false" />
-    <Property Name="DateJoined" Type="date" Nullable="false" />
+    <Property Name="DateJoined" Type="date" />
   </EntityType>
+  <Association Name="FK__Inventory__ItemI__3C69FB99">
+    <End Role="Item" Type="Self.Item" Multiplicity="1" />
+    <End Role="Inventory" Type="Self.Inventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="ItemID" />
+      </Principal>
+      <Dependent Role="Inventory">
+        <PropertyRef Name="ItemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__Inventory__Playe__3B75D760">
     <End Role="Player" Type="Self.Player" Multiplicity="1" />
     <End Role="Inventory" Type="Self.Inventory" Multiplicity="*" />
@@ -41,6 +54,10 @@
     <EntitySet Name="Inventory" EntityType="Self.Inventory" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Item" EntityType="Self.Item" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Player" EntityType="Self.Player" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Inventory__ItemI__3C69FB99" Association="Self.FK__Inventory__ItemI__3C69FB99">
+      <End Role="Item" EntitySet="Item" />
+      <End Role="Inventory" EntitySet="Inventory" />
+    </AssociationSet>
     <AssociationSet Name="FK__Inventory__Playe__3B75D760" Association="Self.FK__Inventory__Playe__3B75D760">
       <End Role="Player" EntitySet="Player" />
       <End Role="Inventory" EntitySet="Inventory" />
