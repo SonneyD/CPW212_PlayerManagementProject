@@ -10,27 +10,27 @@ namespace PlayerDatabaseModule
     {
         /******************************************************/
         // Member variables
+        /*
         private string itemName;
         private string itemDesc;
         private long itemNum; // This is a number refering to the object's unquie ID
-
+        */
         // private Properties prop; // This class contains generic object information. Physics, Graphics, Ect.
 
         /******************************************************/
         // Constructor
+ 
         public Item( string name, string desc, long itemNum )
         {
-            this.itemName = name;
-            this.itemDesc = desc;
-            this.itemNum = itemNum;
+            this.ItemName = name;
+            this.ItemDesc = desc;
         }
 
 
         /******************************************************/
         // Gettors
-        public string getName() { return this.itemName;  }
-        public string getDesc() { return this.itemDesc;  }
-        public long getNum() { return this.itemNum; }
+        public string getName() { return this.ItemName;  }
+        public string getDesc() { return this.ItemDesc;  }
 
         /******************************************************/
         // Settors
@@ -40,7 +40,10 @@ namespace PlayerDatabaseModule
 
         /******************************************************/
         // Misc.
-
+        public override string ToString()
+        {
+            return this.ItemName;
+        }
         /******************************************************/
     }
 }

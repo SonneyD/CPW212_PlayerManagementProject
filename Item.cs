@@ -14,9 +14,17 @@ namespace PlayerDatabaseModule
     
     public partial class Item
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Item()
+        {
+            this.Inventories = new HashSet<Inventory>();
+        }
+    
         public int ItemID { get; set; }
         public string ItemName { get; set; }
         public string ItemDesc { get; set; }
-        public int InventoryID { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Inventory> Inventories { get; set; }
     }
 }

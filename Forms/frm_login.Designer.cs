@@ -30,9 +30,9 @@
         {
             this.lbl_username = new System.Windows.Forms.Label();
             this.btn_RegisterPlayer = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_Username = new System.Windows.Forms.TextBox();
             this.lbl_password = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txt_Password = new System.Windows.Forms.TextBox();
             this.btn_login = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -55,12 +55,13 @@
             this.btn_RegisterPlayer.UseVisualStyleBackColor = true;
             this.btn_RegisterPlayer.Click += new System.EventHandler(this.btn_RegisterPlayer_Click);
             // 
-            // textBox1
+            // txt_Username
             // 
-            this.textBox1.Location = new System.Drawing.Point(91, 27);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(136, 20);
-            this.textBox1.TabIndex = 3;
+            this.txt_Username.Location = new System.Drawing.Point(91, 27);
+            this.txt_Username.Name = "txt_Username";
+            this.txt_Username.Size = new System.Drawing.Size(136, 20);
+            this.txt_Username.TabIndex = 3;
+            this.txt_Username.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // lbl_password
             // 
@@ -71,12 +72,12 @@
             this.lbl_password.TabIndex = 4;
             this.lbl_password.Text = "Password:";
             // 
-            // textBox2
+            // txt_Password
             // 
-            this.textBox2.Location = new System.Drawing.Point(91, 74);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(136, 20);
-            this.textBox2.TabIndex = 5;
+            this.txt_Password.Location = new System.Drawing.Point(91, 74);
+            this.txt_Password.Name = "txt_Password";
+            this.txt_Password.Size = new System.Drawing.Size(136, 20);
+            this.txt_Password.TabIndex = 5;
             // 
             // btn_login
             // 
@@ -94,9 +95,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(295, 181);
             this.Controls.Add(this.btn_login);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txt_Password);
             this.Controls.Add(this.lbl_password);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txt_Username);
             this.Controls.Add(this.btn_RegisterPlayer);
             this.Controls.Add(this.lbl_username);
             this.Name = "form_Login";
@@ -110,9 +111,9 @@
 
         private System.Windows.Forms.Label lbl_username;
         private System.Windows.Forms.Button btn_RegisterPlayer;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_Username;
         private System.Windows.Forms.Label lbl_password;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txt_Password;
         private System.Windows.Forms.Button btn_login;
     }
 }
