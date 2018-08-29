@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using static PlayerDatabaseModule.DatebaseUtility.PlayerDB;
 
@@ -44,8 +38,12 @@ namespace PlayerDatabaseModule
 
         private void btn_removeItem_Click(object sender, EventArgs e)
         {
-            DeleteFromInventory(player, GetItemByName(lbox_pInventory.SelectedItem.ToString()));
-            populateItemList();
+            if (lbox_pInventory.SelectedItem != null)
+            {
+                DeleteFromInventory(player, GetItemByName(lbox_pInventory.SelectedItem.ToString()));
+
+                populateItemList();
+            }
         }
 
         private void onLoad()
@@ -60,11 +58,15 @@ namespace PlayerDatabaseModule
             List<Item> list = GetAllItems();
             List<Inventory> inList = GetPlayerInventory(player);
 
+            cbox_ItemList.Items.Clear();
+
             foreach( Item i in list )
             {
                cbox_ItemList.Items.Add(i);
             }
+
             lbox_pInventory.Items.Clear();
+
             foreach (Inventory i in inList)
             {
                 lbox_pInventory.Items.Add(GetItemByID(i.ItemID));
