@@ -61,7 +61,17 @@ namespace PlayerDatabaseModule.DatebaseUtility
 
             return itemList;
         }
+        public static Item GetItemByName(string n)
+        {
+            PlayerDBModel con = new PlayerDBModel();
 
+            List<Item> itemList = (from Item in con.Items
+                                   where Item.ItemID > 0
+                                   orderby Item.ItemID descending
+                                   select Item).ToList();
+
+            return itemList[0];
+        }
         public static void UpdateItem(Item pItem)
         {
             if(checkItemIsValid(pItem))
@@ -97,23 +107,62 @@ namespace PlayerDatabaseModule.DatebaseUtility
 
             if (invList.Count > 0)
             {
-                con.Inventories.Remove(invList[0]);
+                if (invList.Count > 0)
+                {
+                    Inventory temp = invList[0];
+                    Inventory t2 = con.Inventories.Find(pItem.ItemID);
+
+                    if (temp != null)
+                    {
+                        con.Inventories.Add(temp);
+                        con.Entry<Inventory>(temp).State = System.Data.Entity.EntityState.Deleted;
+                    }
+                }
+
                 con.SaveChanges();
             }
         }
-        public static List<Inventory> GetAllPlayerItems(Player pPlayer)
+        public static void DeleteFromInventory(Player pPlayer, Item pItem)
         {
-            PlayerDBModel con = new PlayerDBModel();
+            var con = new PlayerDBModel();
 
-            List<Inventory> itemList = (from Item in con.Inventories where(Item.PlayerID == pPlayer.PlayerID) select Item).ToList();
+            var temp = con.Inventories.Where(d => d.PlayerID == pPlayer.PlayerID );//.first();
 
-            return itemList;
+            if (temp != null)
+            {
+                var t2 = temp.First<Inventory>();
+                con.Inventories.Add(t2);
+                con.Entry<Inventory>(t2).State = System.Data.Entity.EntityState.Deleted;
+
+                con.SaveChanges();
+          }
+
         }
-        public static string GetItemByID( int id )
+        public static List<Inventory> GetPlayerInventory(Player pPlayer)
         {
             PlayerDBModel con = new PlayerDBModel();
 
-            return (from item in con.Items where item.ItemID == id select item).ToString();
+            return (from Item in con.Inventories where (Item.PlayerID == pPlayer.PlayerID) select Item).ToList();
+        }
+
+        public static Inventory GetItemFromInventory( Player pPlayer, Item pItem )
+        {
+            List<Inventory> inv = GetPlayerInventory(pPlayer);
+
+            foreach(Inventory i in inv)
+            {
+                if (i.PlayerID == pPlayer.PlayerID && i.ItemID == pItem.ItemID)
+                    return i;
+            }
+
+            return null; // Returns nothing if nothing is found.
+        }
+
+        public static Item GetItemByID( int id )
+        {
+            PlayerDBModel con = new PlayerDBModel();
+            Item temp = (from item in con.Items where item.ItemID == id select item).ToList()[0];
+            return temp;
         }
         public static List<Inventory> GetAllPlayerItems(Player pPlayer, Item pItem)
         {
