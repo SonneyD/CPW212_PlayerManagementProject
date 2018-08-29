@@ -4,6 +4,8 @@ using PlayerDatabaseModule.Exceptions;
 
 namespace PlayerDatabaseModule
 {
+    // I had to rework this class in order to get around a flaw when I designed the DB. Really should be called InventoryItems refering to an item stored in an inventory, not the inventory itself.
+
     partial class Inventory // The way its being used, it should really be called InventoryItem
     {
         /******************************************************/

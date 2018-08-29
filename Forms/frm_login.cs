@@ -6,7 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-
+using static PlayerDatabaseModule.Security.Cryptography;
 
 namespace PlayerDatabaseModule
 {
@@ -19,6 +19,8 @@ namespace PlayerDatabaseModule
 #if (DEBUG)
             txt_Username.Text = "admin";
             txt_Password.Text  = "Admin!";
+
+            //TestFN();
 #endif
 
             this.AcceptButton = btn_login;

@@ -40,7 +40,9 @@ namespace PlayerDatabaseModule
         {
             if (lbox_pInventory.SelectedItem != null)
             {
-                DeleteFromInventory(player, GetItemByName(lbox_pInventory.SelectedItem.ToString()));
+                //DeleteFromInventory(player, GetItemByName(lbox_pInventory.SelectedItem.ToString()));
+
+                DeleteItemFromPlayerInventory(player, GetItemByName(lbox_pInventory.SelectedItem.ToString()));
 
                 populateItemList();
             }
