@@ -78,6 +78,7 @@
             this.txt_PlayerField.ReadOnly = true;
             this.txt_PlayerField.Size = new System.Drawing.Size(120, 20);
             this.txt_PlayerField.TabIndex = 10;
+            this.txt_PlayerField.TextChanged += new System.EventHandler(this.txt_PlayerField_TextChanged);
             // 
             // lbl_PlayerName
             // 

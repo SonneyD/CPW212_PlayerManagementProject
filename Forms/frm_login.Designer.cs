@@ -51,7 +51,7 @@
             this.btn_RegisterPlayer.Name = "btn_RegisterPlayer";
             this.btn_RegisterPlayer.Size = new System.Drawing.Size(94, 34);
             this.btn_RegisterPlayer.TabIndex = 2;
-            this.btn_RegisterPlayer.Text = "Register New Player";
+            this.btn_RegisterPlayer.Text = "Register New User";
             this.btn_RegisterPlayer.UseVisualStyleBackColor = true;
             this.btn_RegisterPlayer.Click += new System.EventHandler(this.btn_RegisterPlayer_Click);
             // 
@@ -78,6 +78,7 @@
             this.txt_Password.Name = "txt_Password";
             this.txt_Password.Size = new System.Drawing.Size(136, 20);
             this.txt_Password.TabIndex = 5;
+            this.txt_Password.UseSystemPasswordChar = true;
             // 
             // btn_login
             // 

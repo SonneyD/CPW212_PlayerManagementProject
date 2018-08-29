@@ -15,6 +15,13 @@ namespace PlayerDatabaseModule
         public form_Login()
         {
             InitializeComponent();
+
+#if (DEBUG)
+            txt_Username.Text = "admin";
+            txt_Password.Text  = "Admin!";
+#endif
+
+            this.AcceptButton = btn_login;
         }
 
         private void btn_login_Click(object sender, EventArgs e)
@@ -22,10 +29,7 @@ namespace PlayerDatabaseModule
             string username = txt_Username.Text;
             string password = txt_Password.Text;
 
-#if (DEBUG)
-            username = "admin";
-            password = "Admin!";
-#endif
+
 
             PlayerDBModel con = new PlayerDBModel();
 
@@ -33,12 +37,14 @@ namespace PlayerDatabaseModule
                                     where Player.Username == username && Player.Password == password
                                     select Player).ToList();
 
-            if(pPlayer.Count == 1)
+            if (pPlayer.Count == 1)
             {
-                var playerStr = new frm_PlayerStorage( pPlayer[0] );
+                var playerStr = new frm_PlayerStorage(pPlayer[0]);
 
                 DialogResult res = playerStr.ShowDialog();
             }
+            else
+                MessageBox.Show("Your username or password is incorrect.", "Failed Login");
 
             // if failed, display a message box prompting user retry login
         }
